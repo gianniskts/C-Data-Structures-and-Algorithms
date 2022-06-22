@@ -1,11 +1,11 @@
 /*
  **************************************************************************
- * Author: Konstantinos Nikoletos                                         *
- * URL: http://github.com/Nikoletos-K                                     *
+ * Author: Giannis Kotsias		                                          *
+ * URL: http://github.com/gianniskts                                      *
  *                                                                        *
- * Copyright notice:   													  *
- * Free use this code is permitted under the guidelines 				  *
- * and in accordance with the MIT License. 						  	      * 
+ * Copyright notice:   							  						  *
+ * Free use this code is permitted under the guidelines 		  		  *
+ * and in accordance with the MIT License. 				  				  * 
  *                                                                        *
  **************************************************************************
 */

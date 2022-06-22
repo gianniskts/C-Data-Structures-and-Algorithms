@@ -1,11 +1,11 @@
 /*
  **************************************************************************
- * Author: Konstantinos Nikoletos                                         *
- * URL: http://github.com/Nikoletos-K                                     *
+ * Author: Giannis Kotsias		                                          *
+ * URL: http://github.com/gianniskts                                      *
  *                                                                        *
- * Copyright notice:   													  *
- * Free use this code is permitted under the guidelines 				  *
- * and in accordance with the MIT License. 						  	      * 
+ * Copyright notice:   							  						  *
+ * Free use this code is permitted under the guidelines 		  		  *
+ * and in accordance with the MIT License. 				  				  * 
  *                                                                        *
  **************************************************************************
 */
@@ -16,11 +16,13 @@
 #define NO_ERROR 1
 #define ERROR -1
 
+typedef void* Pointer;
+
 typedef struct queueNode queueNode;
 
 typedef struct queueNode{
 	
-	void * data;
+	Pointer data;
 	queueNode * nextNode;
 	queueNode * prevNode;
 		
@@ -38,13 +40,13 @@ typedef struct Queue{
 
 // constructors
 Queue * createQueue();
-queueNode * create_queueNode(void * data);
+queueNode * create_queueNode(Pointer data);
 
 // insertion functions
-int QueuePush(Queue * queue,void * data);
+int QueuePush(Queue * queue,Pointer data);
 
 // geters
-void * QueuePop(Queue * queue);
+Pointer QueuePop(Queue * queue);
 
 int emptyQueue(Queue * queue);
 

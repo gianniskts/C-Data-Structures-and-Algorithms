@@ -1,11 +1,11 @@
 /*
  **************************************************************************
- * Author: Konstantinos Nikoletos                                         *
- * URL: http://github.com/Nikoletos-K                                     *
+ * Author: Giannis Kotsias		                                          *
+ * URL: http://github.com/gianniskts                                      *
  *                                                                        *
- * Copyright notice:   							  *
- * Free use this code is permitted under the guidelines 		  *
- * and in accordance with the MIT License. 				  * 
+ * Copyright notice:   							  						  *
+ * Free use this code is permitted under the guidelines 		  		  *
+ * and in accordance with the MIT License. 				  				  * 
  *                                                                        *
  **************************************************************************
 */
@@ -13,9 +13,11 @@
 
 #include "./HashFunctions.h"
 
+typedef char* String;
+
 typedef struct BloomFilter{
 
-	char * bitArray;
+	String bitArray;
 	unsigned int size;
 
 }BF;
@@ -25,8 +27,8 @@ unsigned int size_of_bitArray(unsigned int numOfVoters);
 
 // BloomFilter functions
 BF * createBF(unsigned int size);
-void insertBF(BF * bf, char * identity);
-int checkBF(BF * bf, char * identity);
+void insertBF(BF * bf, String identity);
+int checkBF(BF * bf, String identity);
 void destroyBF(BF * bf);
 
 // Bit-Array functions

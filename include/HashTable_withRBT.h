@@ -1,11 +1,11 @@
 /*
  **************************************************************************
- * Author: Konstantinos Nikoletos                                         *
- * URL: http://github.com/Nikoletos-K                                     *
+ * Author: Giannis Kotsias		                                          *
+ * URL: http://github.com/gianniskts                                      *
  *                                                                        *
- * Copyright notice:   													  *
- * Free use this code is permitted under the guidelines 				  *
- * and in accordance with the MIT License. 						  	      * 
+ * Copyright notice:   							  						  *
+ * Free use this code is permitted under the guidelines 		  		  *
+ * and in accordance with the MIT License. 				  				  * 
  *                                                                        *
  **************************************************************************
 */
@@ -26,7 +26,8 @@ typedef struct HashTable {
 	HTNode **Table;	
 }HashTable;
 
-
+typedef void* Pointer;
+typedef char* String;
 
 /*---------Create_Functions-------------*/
 
@@ -34,12 +35,12 @@ HashTable * HTConstruct(int size);
 
 /*-------------Insert_Functions-----------------*/
 
-void HTInsert(HashTable * ht,keyType key,void * data,int (*comparator)(valueType,valueType));
+void HTInsert(HashTable * ht,keyType key,Pointer data,int (*comparator)(valueType,valueType));
 
 /*------------Getters-----------------*/
 
 unsigned int hashCode(HashTable * ht,keyType key);
-unsigned int hashFunction(char * str);
+unsigned int hashFunction(String str);
 
 /*--------------Search_function-------------------*/
 

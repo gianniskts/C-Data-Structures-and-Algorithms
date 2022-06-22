@@ -1,11 +1,11 @@
 /*
  **************************************************************************
- * Author: Konstantinos Nikoletos                                         *
- * URL: http://github.com/Nikoletos-K                                     *
+ * Author: Giannis Kotsias		                                          *
+ * URL: http://github.com/gianniskts                                      *
  *                                                                        *
- * Copyright notice:   													  *
- * Free use this code is permitted under the guidelines 				  *
- * and in accordance with the MIT License. 						  	      * 
+ * Copyright notice:   							  						  *
+ * Free use this code is permitted under the guidelines 		  		  *
+ * and in accordance with the MIT License. 				  				  * 
  *                                                                        *
  **************************************************************************
 */
@@ -13,5 +13,7 @@
 
 #include "./Comparators.h"		// we need Comparators
 
-void quicksort(void ** array,int p,int r,int (*compare)(const void*,const void*));
-int partition(void ** array,int p,int r,int (*compare)(const void*,const void*));
+typedef void* Pointer;
+
+void quicksort(Pointer* array,int p,int r,int (*compare)(const void*,const void*));
+int partition(Pointer* array,int p,int r,int (*compare)(const void*,const void*));

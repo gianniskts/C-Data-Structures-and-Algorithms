@@ -1,11 +1,11 @@
 /*
  **************************************************************************
- * Author: Konstantinos Nikoletos                                         *
- * URL: http://github.com/Nikoletos-K                                     *
+ * Author: Giannis Kotsias		                                          *
+ * URL: http://github.com/gianniskts                                      *
  *                                                                        *
- * Copyright notice:   													  *
- * Free use this code is permitted under the guidelines 				  *
- * and in accordance with the MIT License. 						  	      * 
+ * Copyright notice:   							  						  *
+ * Free use this code is permitted under the guidelines 		  		  *
+ * and in accordance with the MIT License. 				  				  * 
  *                                                                        *
  **************************************************************************
 */
@@ -16,11 +16,13 @@
 #define NO_ERROR 1
 #define ERROR -1
 
+typedef void* Pointer;
+
 typedef struct listNode listNode;
 
 typedef struct listNode{
 	
-	void * data;
+	Pointer data;
 	listNode * nextNode;
 	listNode * prevNode;
 		
@@ -38,23 +40,23 @@ typedef struct List{
 
 // constructors
 List * createList();
-listNode * create_listNode(void * data);
+listNode * create_listNode(Pointer data);
 
 // insertion functions
-int insert_toList(List * list,void * data);
+int insert_toList(List * list,Pointer data);
 
 // geters
-void * getData_fromList(List * list,int index);
+Pointer getData_fromList(List * list,int index);
 int get_numOfNodes(List * list);
 
 // search functions
-void * findValue(List * list,void * value,int (*comparator)(void*,void*));
+Pointer findValue(List * list,Pointer value,int (*comparator)(Pointer,Pointer));
 
 // destructors
 int deleteList(List * list);
 
 // print function
-void printList(List * list,void (*printData)(void*));
+void printList(List * list,void (*printData)(Pointer));
 
 // list with one node
 int oneNodeList(List * list);

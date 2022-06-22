@@ -1,18 +1,17 @@
 /*
  **************************************************************************
- * Author: Konstantinos Nikoletos                                         *
- * URL: http://github.com/Nikoletos-K                                     *
+ * Author: Giannis Kotsias		                                          *
+ * URL: http://github.com/gianniskts                                      *
  *                                                                        *
- * Copyright notice:   													                          *
- * Free use this code is permitted under the guidelines 				          *
- * and in accordance with the MIT License. 						  	                * 
+ * Copyright notice:   							  						  *
+ * Free use this code is permitted under the guidelines 		  		  *
+ * and in accordance with the MIT License. 				  				  * 
  *                                                                        *
  **************************************************************************
 */
 #pragma once
 
 #define empty NULL
-
 
 int compare_ints(const void * a, const void * b);
 int compare_str(const void * str1,const void * str2);
