@@ -6,15 +6,15 @@
 /*---- Recursive - Generic implementation of quicksort ---------------*/
 
 // Exchange is a swap function
-void exchange(void ** array,int pos1,int pos2){
+void exchange(Pointer* array,int pos1,int pos2){
 
-	void * temp = array[pos1];
+	Pointer temp = array[pos1];
 	array[pos1] = array[pos2];
 	array[pos2] = temp;
 
 }
 
-void quicksort(void ** array,int p,int r,int (*compare)(const void*,const void*)){
+void quicksort(Pointer* array,int p,int r,int (*compare)(ConstPointer,ConstPointer)){
 
 	if(p<r){
 		int q = partition(array,p,r,compare);	/* pivot */
@@ -23,9 +23,9 @@ void quicksort(void ** array,int p,int r,int (*compare)(const void*,const void*)
 	}
 }
 
-int partition(void ** array,int p,int r,int (*compare)(const void*,const void*)){
+int partition(Pointer* array,int p,int r,int (*compare)(ConstPointer,ConstPointer)){
 
-	void * value = array[r];	// pivot element
+	Pointer value = array[r];	// pivot element
 	int i = p-1;
 
 	for(int j=p;j<r;j++){		// with this loop ,values seperated into 2 partitions ,those bigger and smaller from the pivot

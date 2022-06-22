@@ -11,14 +11,14 @@ For using this module follow these steps:
 
 ## Main functionality
 ```
-void quicksort(void ** array,int p,int r,int (*compare)(const void*,const void*));
+void quicksort(Pointer* array,int p,int r,int (*compare)(ConstPointer,ConstPointer));
 ```
 where:
 
-- ```void ** array```: The array to be sorted
+- ```Pointer* array```: The array to be sorted
 - ```int p``` : Start node
 - ```int r``` : End node
-- ```int (*compare)(const void*,const void*)```: Comparator function
+- ```int (*compare)(ConstPointer,ConstPointer)```: Comparator function
 
 ## Definition
 Quicksort is an efficient sorting algorithm. Developed by British computer scientist Tony Hoare in 1959 and published in 1961, it is still a commonly used algorithm for sorting. When implemented well, it can be somewhat faster than merge sort and about two or three times faster than heapsort.
