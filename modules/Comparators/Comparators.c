@@ -4,33 +4,33 @@
 
 #include "./../../include/Comparators.h"
 
-int compare_ints(const void * a, const void * b) {
+int compare_ints(ConstPointer a, ConstPointer b) {
 	return *(int*)a - *(int*)b;
 }
 
-int compare_str(const void * str1,const void * str2){
-    return strcmp((char*) str1,(char*) str2);
+int compare_str(ConstPointer str1,ConstPointer str2){
+    return strcmp((String) str1,(String) str2);
 }
 
-int compare_longs(const void * long1,const void * long2){
+int compare_longs(ConstPointer long1,ConstPointer long2){
 	return (*(long *) long1 - *(long *) long2);
 }
 
-int compare_floats(const void * float1,const void * float2){
+int compare_floats(ConstPointer float1,ConstPointer float2){
 	return (*(float *) float1 - *(float *) float2);
 }
 
 
 // Date format: dd-mm-yyyy
-int compare_dates(const  void * date1,const void * date2){
+int compare_dates(ConstPointer date1,ConstPointer date2){
 
-	char * d1 = (char*) date1;
-	char * d2 = (char*) date2;
+	String d1 = (String) date1;
+	String d2 = (String) date2;
 
 	if(!strcmp(date2,"--"))
 		return 0;
 
-	char *token;
+	String token;
 	int d[2],m[2],y[2];
 
 	for(int i=0;i<2;i++){

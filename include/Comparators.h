@@ -15,6 +15,7 @@
 
 typedef void* Pointer;
 typedef const void* ConstPointer;
+typedef char* String;
 
 int compare_ints(ConstPointer a, ConstPointer b);
 int compare_str(ConstPointer str1,ConstPointer str2);
