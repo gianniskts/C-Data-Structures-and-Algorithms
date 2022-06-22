@@ -14,8 +14,8 @@ For using this bloom filter follow these steps:
 ## Main Functionality
 ```
 BF * createBF(unsigned int size);         // Creates bloom filter
-void insertBF(BF * bf, char * identity);  // Inserts a char* value 
-int checkBF(BF * bf, char * identity);    // Searchs a char* value
+void insertBF(BF * bf, String identity);  // Inserts a String value 
+int checkBF(BF * bf, String identity);    // Searchs a String value
 void destroyBF(BF * bf);                  // Destroyes the structure, no memory leaks 
 ```
 
