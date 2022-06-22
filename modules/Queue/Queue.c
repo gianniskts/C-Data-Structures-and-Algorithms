@@ -17,7 +17,7 @@ Queue * createQueue(){
 }
 
 
-queueNode * create_queueNode(void * data){
+queueNode * create_queueNode(Pointer data){
 
 	queueNode * node = malloc(sizeof(queueNode));
 	node->data = data;
@@ -27,7 +27,7 @@ queueNode * create_queueNode(void * data){
 }
 
 // insertion function
-int QueuePush(Queue * queue,void * data){
+int QueuePush(Queue * queue,Pointer data){
 
 	queueNode * newNode = create_queueNode(data);
 
@@ -46,7 +46,7 @@ int QueuePush(Queue * queue,void * data){
 }
 
 // geters
-void * QueuePop(Queue * queue){
+Pointer QueuePop(Queue * queue){
 
 	queueNode * tempNode = queue->firstNode;
 
@@ -61,7 +61,7 @@ void * QueuePop(Queue * queue){
 	}
 
 	queue->numOfNodes--;
-	void * data = tempNode->data;
+	Pointer data = tempNode->data;
 	free(tempNode);
 
 	return data;

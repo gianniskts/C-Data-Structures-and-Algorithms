@@ -17,7 +17,7 @@ For n items:
 ```
 typedef struct queueNode{
 	
-	void * data;
+	Pointer data;
 	queueNode * nextNode;
 	queueNode * prevNode;
 		
@@ -36,7 +36,7 @@ typedef struct Queue{
 ```
 Queue * createQueue(); // constructor
 int QueuePush(Queue * queue,void * data);  // insertion function
-void * QueuePop(Queue * queue); // Pop
+Pointer QueuePop(Queue * queue); // Pop
 int emptyQueue(Queue * queue); // If empty returns true
 int deleteQueue(Queue * queue); // destructor
 
