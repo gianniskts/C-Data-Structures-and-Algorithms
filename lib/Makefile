@@ -13,10 +13,7 @@ objectives.a_OBJS = 													\
 	$(MODULES)/MaxHeap/maxHeap.o 										\
 	$(MODULES)/HashTable_withList/HashTable_withList.o 					\
 	$(MODULES)/HashTable_withBucketstoRBT/HashTable_withBucketstoRBT.o 	\
-
-
-# 	$(MODULES)/JobScheduler/JobScheduler.o 								\
-
+	$(MODULES)/JobScheduler/JobScheduler.o 								\
 	
 
 include ../common.mk	
