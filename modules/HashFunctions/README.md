@@ -8,9 +8,9 @@ Implemented hash functions for strings and a function that finds the first prime
 unsigned int firstPrime(unsigned int min,unsigned int max);
 
 /* String hashing */
-unsigned int StringHashFunction_RS(char * str);
-unsigned int StringHashFunction_BKDR(char * str);
-unsigned int StringHashFunction_DEK(char * str);
+unsigned int StringHashFunction_RS(String str);
+unsigned int StringHashFunction_BKDR(String str);
+unsigned int StringHashFunction_DEK(String str);
 ```
 
 
