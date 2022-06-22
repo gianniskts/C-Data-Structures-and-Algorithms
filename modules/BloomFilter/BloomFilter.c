@@ -4,9 +4,9 @@
 
 #include "./../../include/BloomFilter.h"
 
-unsigned int (*hashFunction_1)(char *) =  StringHashFunction_RS;
-unsigned int (*hashFunction_2)(char *) =  StringHashFunction_BKDR;
-unsigned int (*hashFunction_3)(char *) =  StringHashFunction_DEK;
+unsigned int (*hashFunction_1)(String) =  StringHashFunction_RS;
+unsigned int (*hashFunction_2)(String) =  StringHashFunction_BKDR;
+unsigned int (*hashFunction_3)(String) =  StringHashFunction_DEK;
 
 
 unsigned int size_of_bitArray(unsigned int numOfVoters){
@@ -51,7 +51,7 @@ int checkBit(BF * bf,unsigned int hash){				/* Same method as above */
 }
 
 
-void insertBF(BF * bf,char * identity){
+void insertBF(BF * bf,String identity){
 
 		unsigned int hash1,hash2,hash3;
 
@@ -67,7 +67,7 @@ void insertBF(BF * bf,char * identity){
 }
 
 
-int checkBF(BF * bf, char * identity){
+int checkBF(BF * bf, String identity){
 
 	int flag=0;
 	unsigned int hash1,hash2,hash3;
