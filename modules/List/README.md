@@ -15,7 +15,7 @@ For n items:
 ```
 typedef struct listNode{
 	
-	void * data;
+	Pointer data;
 	listNode * nextNode;
 	listNode * prevNode;
 		
@@ -34,13 +34,13 @@ typedef struct List{
 ```
 List * createList(); // constructor
 
-int insert_toList(List * list,void * data); // insertion function
+int insert_toList(List * list,Pointer data); // insertion function
 
-void * getData_fromList(List * list,int index); // geters
+Pointer getData_fromList(List * list,int index); // geters
 
-void * findValue(List * list,void * value,int (*comparator)(void*,void*)); // search function
+Pointer findValue(List * list,Pointer value,int (*comparator)(Pointer,Pointer)); // search function
 
-void printList(List * list,void (*printData)(void*)); // print function
+void printList(List * list,void (*printData)(Pointer)); // print function
 
 int get_listSize(List * list); // size
 

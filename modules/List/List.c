@@ -13,7 +13,7 @@ List * createList(){
 	return tempList;
 }
 
-listNode * create_listNode(void * data){
+listNode * create_listNode(Pointer data){
 
 	listNode * node = malloc(sizeof(listNode));
 	node->data = data;
@@ -22,7 +22,7 @@ listNode * create_listNode(void * data){
 	return node;
 }
 
-int insert_toList(List * list,void * data){		// insertion is done at the end of the list O(1)
+int insert_toList(List * list,Pointer data){		// insertion is done at the end of the list O(1)
 
 	listNode * newNode = create_listNode(data);
 
@@ -59,7 +59,7 @@ int get_numOfNodes(List * list){
 	return list->numOfNodes;
 }
 
-void * getData_fromList(List * list,int index){		// returns the saved data from a list node at position "index"
+Pointer getData_fromList(List * list,int index){		// returns the saved data from a list node at position "index"
 
 	listNode * tempNode = list->firstNode;
 	int i=0;
@@ -69,7 +69,7 @@ void * getData_fromList(List * list,int index){		// returns the saved data from 
 	return tempNode->data;
 }
 
-void * findValue(List * list,void * value,int (*comparator)(void*,void*)){	// searches the list until finding "value"
+Pointer findValue(List * list,Pointer value,int (*comparator)(Pointer,Pointer)){	// searches the list until finding "value"
 
 	listNode * tempNode = list->firstNode;
 	while(tempNode!=NULL && !(*comparator)(tempNode->data,value))
@@ -79,7 +79,7 @@ void * findValue(List * list,void * value,int (*comparator)(void*,void*)){	// se
 }
 
 
-void printList(List * list,void (*printData)(void*)){
+void printList(List * list,void (*printData)(Pointer)){
 
 	listNode * tempNode = list->firstNode;
 
