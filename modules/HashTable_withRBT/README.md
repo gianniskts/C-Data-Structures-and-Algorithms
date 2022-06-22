@@ -20,7 +20,7 @@ Download and connect this structure with:
 ## Main Functionality
 ```
 HashTable * HTConstruct(int size);
-void HTInsert(HashTable * ht,keyType key,void * data,int (*comparator)(valueType,valueType))
+void HTInsert(HashTable * ht,keyType key,Pointer data,int (*comparator)(valueType,valueType))
 void * HTSearch(HashTable * ht,keyType key,int (*comparator)(valueType,valueType));  //  Searches the key by using the approptiate type of comparator
 void HTDestroy(HashTable * ht); // Destroys the structure
 ```
