@@ -1,5 +1,4 @@
-<center><img src="./img/logo2.png" align="center"></center>
-
+<center><img src="./img/What-is-Data-Structures-and-Algorithms.jpg" align="center"></center>
 
 ---
 # Data Stuctures and Algorithms implemented in C 
