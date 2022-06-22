@@ -4,7 +4,7 @@
 ---
 
 
-[![run-tests](https://github.com/Nikoletos-K/Data-Stuctures-and-Algorithms-in-C/actions/workflows/run-tests.yml/badge.svg)](https://github.com/Nikoletos-K/Data-Stuctures-and-Algorithms-in-C/actions/workflows/run-tests.yml)
+[![run-tests](https://github.com/gianniskts/C-Data-Stuctures-and-Algorithms/actions/workflows/run-tests.yml/badge.svg)](https://github.com/gianniskts/C-Data-Stuctures-and-Algorithms/actions/workflows/run-tests.yml)
 
 
 # Data Stuctures and Algorithms implemented in C 
@@ -23,8 +23,8 @@ Every module consists of at least one header file (.h) and one source file that 
 ## Compile and Execution
 If you clone the whole folder you can run:
 - ```make```: That compliles every module 
-- ```make run-tests```: which compiles every module and executes all tests
-- ```make valgind-tests```:  which compiles every module and executes all tests using valgrind
+- ```make run```: which compiles every module and executes all tests
+- ```make valgind-tests```:  which compiles every module and executes all tests using valgrind checking for memory leaks
 
 ## Appendix
 
@@ -63,11 +63,8 @@ For the testing of the modules that have been created, I used the library ```acu
 More information about the [acutest library](https://github.com/mity/acutest)
 
 ## Future work
-Creating simple programs (main functions) as use examples for all the modules.
-
-
-☑️ __Some modules have been made in collaboration with [Myrto Iglezou](https://github.com/Myrto-Iglezou)__. ☑️
+☑️ __Implement more algorithms and broaden the documentation__. ☑️
 
 ---
 
-© Konstantinos Nikoletos | 2021
+© Giannis Kotsias | 2022
