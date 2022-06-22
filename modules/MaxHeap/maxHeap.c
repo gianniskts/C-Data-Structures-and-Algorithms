@@ -16,7 +16,7 @@ Heap * heapConstruct(){
 
 }
 
-heapNode * create_heapNode(void * value){
+heapNode * create_heapNode(Pointer value){
 
 	heapNode * newhn = malloc(sizeof(heapNode));
 	newhn->value = value;
@@ -31,14 +31,14 @@ heapNode * create_heapNode(void * value){
 
 void swap(heapNode * hn1,heapNode * hn2){
 
-	void * tempValue = hn1->value;
+	Pointer tempValue = hn1->value;
 	hn1->value = hn2->value;
 	hn2->value = tempValue;
 
 }
 heapNode * getParent(heapNode * hn){ return hn->parent; }
 
-void heapifyUp(Heap * heap,heapNode * hn,int (*comparator)(const void *,const void *)){		/* function that changes nodes from down to top of the tree in order to maintain max heap conditions*/
+void heapifyUp(Heap * heap,heapNode * hn,int (*comparator)(ConstPointer,ConstPointer)){		/* function that changes nodes from down to top of the tree in order to maintain max heap conditions*/
 	
 	if(hn->parent == NULL){		/* base case : when node is root */
 		heap->root = hn;		/* inform root */
@@ -51,7 +51,7 @@ void heapifyUp(Heap * heap,heapNode * hn,int (*comparator)(const void *,const vo
 	}	
 }
 
-void heapifyDown(Heap * heap,heapNode * hn,int depth,int (*comparator)(const void *,const void *)){
+void heapifyDown(Heap * heap,heapNode * hn,int depth,int (*comparator)(ConstPointer,ConstPointer)){
 
 	if(depth == (int)log2(heap->size))	/* base case: when depth reach leafs */
 		return;
@@ -76,7 +76,7 @@ void heapifyDown(Heap * heap,heapNode * hn,int depth,int (*comparator)(const voi
 	}
 }
 
-void insert_toHeap(Heap * heap,void * value,int (*comparator)(const void *,const void *)){
+void insert_toHeap(Heap * heap,Pointer value,int (*comparator)(ConstPointer,ConstPointer)){
 
 	if(heap->size==0){		// if heap is empty - first insertion
 		heap->root = create_heapNode(value);
@@ -117,19 +117,19 @@ void insert_toHeap(Heap * heap,void * value,int (*comparator)(const void *,const
 	heapifyUp(heap,newhn,comparator);	// maintain heap coditions until root
 }
 
-void * extractMax_fromHeap(Heap * heap,int (*comparator)(const void *,const void *)){
+Pointer extractMax_fromHeap(Heap * heap,int (*comparator)(ConstPointer,ConstPointer)){
 
 	if(heap==NULL)
 		return NULL;
 
 	if(heap->size==1){		// if extracting the last node
 		heap->size--;
-		void * temp = heap->root->value ;
+		Pointer temp = heap->root->value ;
 		free(heap->root);
 		return temp;
 	}
 
-	void * returnedValue = heap->root->value;
+	Pointer returnedValue = heap->root->value;
 	unsigned int guide;
 	int size=heap->size;
 	heapNode * posHN = heap->root;	

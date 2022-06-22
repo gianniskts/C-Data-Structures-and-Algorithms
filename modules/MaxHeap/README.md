@@ -32,7 +32,7 @@ typedef struct  heapNode{
 	heapNode * parent;
 	heapNode * leftChild;
 	heapNode * rightChild;
-	void * value;
+	Pointer value;
 
 }heapNode;
 
@@ -48,7 +48,7 @@ typedef struct Heap{
 ## Main Functionality
 ```
 Heap * heapConstruct();  // constructor
-void insert_toHeap(Heap * heap,void * value,int (*comparator)(const void *,const void *)); // insertion function
-void * extractMax_fromHeap(Heap * heap,int (*comparator)(const void *,const void *)); // extraction function
+void insert_toHeap(Heap * heap,Pointer value,int (*comparator)(ConstPointer,ConstPointer)); // insertion function
+Pointer extractMax_fromHeap(Heap * heap,int (*comparator)(ConstPointer,ConstPointer)); // extraction function
 void destroyHeap(Heap * heap);  // destructor
 ```
