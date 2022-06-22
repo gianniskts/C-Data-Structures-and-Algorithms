@@ -5,9 +5,9 @@
 /* Recurcive - Generic implementation of heapsort */
 
 // Exchange is a swap function
-void exchange(void ** array,int pos1,int pos2){
+void exchange(Pointer* array,int pos1,int pos2){
 
-	void * temp = array[pos1];
+	Pointer temp = array[pos1];
 	array[pos1] = array[pos2];
 	array[pos2] = temp;
 
@@ -19,7 +19,7 @@ int getRight(int i){return 2*i+1;}
 
 int getParent(int i){return i/2;}
 
-void maxHeapify(void ** array,int heapSize,int i,int (*compare)(const void*,const void*)){	
+void maxHeapify(Pointer* array,int heapSize,int i,int (*compare)(ConstPointer,ConstPointer)){	
 	
 	// Maintaining the heap property,while inserting a new element 
 
@@ -41,7 +41,7 @@ void maxHeapify(void ** array,int heapSize,int i,int (*compare)(const void*,cons
 	}
 }
 
-void buildMaxHeap(void ** array,int heapSize,int (*compare)(const void*,const void*)){		
+void buildMaxHeap(Pointer* array,int heapSize,int (*compare)(ConstPointer,ConstPointer)){		
 
 	int length = --heapSize;	// heapSize - 1 , because of array : 0,...,size-1
 	for(int i = length/2; i>=0 ;i--){	// for every element in the heap -> length/2
@@ -49,7 +49,7 @@ void buildMaxHeap(void ** array,int heapSize,int (*compare)(const void*,const vo
 	}
 }
 
-void heapsort(void ** array,int heapSize,int (*compare)(const void*,const void*)){
+void heapsort(Pointer* array,int heapSize,int (*compare)(ConstPointer,ConstPointer)){
 
 	buildMaxHeap(array,heapSize,compare);
 	int temp = heapSize-1;

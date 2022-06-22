@@ -11,13 +11,13 @@ For using this module follow these steps:
 
 ## Main functionality
 ```
-void heapsort(void ** array,int heapSize,int (*compare)(const void*,const void*));
+void heapsort(Pointer* array,int heapSize,int (*compare)(ConstPointer, ConstPointer));
 ```
 where:
 
-- ```void ** array```: The array to be sorted
+- ```Pointer* array```: The array to be sorted
 - ```int heapSize``` : Number of nodes in heap
-- ```int (*compare)(const void*,const void*)```: Comparator function
+- ```int (*compare)(ConstPointer,ConstPointer)```: Comparator function
 
 ## Definition
 In computer science, heapsort is a comparison-based sorting algorithm. Heapsort can be thought of as an improved selection sort: 
