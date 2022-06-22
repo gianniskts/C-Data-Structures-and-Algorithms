@@ -4,7 +4,7 @@
 
 #include "./../../include/HashTable_withRBT.h"
 
-unsigned int hashFunction(char * str){
+unsigned int hashFunction(String str){
 
 	unsigned int length = strlen(str);
 	unsigned int seed = 131; 
@@ -39,7 +39,7 @@ HashTable * HTConstruct(int size){
 /*-----------------------------------Insert_Functions-------------------------------------*/
 
 
-void HTInsert(HashTable * ht,keyType key,void * data,int (*comparator)(valueType,valueType)){
+void HTInsert(HashTable * ht,keyType key,Pointer data,int (*comparator)(valueType,valueType)){
 
 	unsigned int index = hashFunction(key)%ht->size;
 
@@ -52,7 +52,7 @@ void HTInsert(HashTable * ht,keyType key,void * data,int (*comparator)(valueType
 
 /*-------------------------------------Search_function---------------------------------------*/
 
-void * HTSearch(HashTable * ht,keyType key,int (*comparator)(valueType,valueType)){
+Pointer HTSearch(HashTable * ht,keyType key,int (*comparator)(valueType,valueType)){
 
 	unsigned int index = hashFunction(key)%ht->size;
 
