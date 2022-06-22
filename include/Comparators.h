@@ -13,8 +13,11 @@
 
 #define empty NULL
 
-int compare_ints(const void * a, const void * b);
-int compare_str(const void * str1,const void * str2);
-int compare_longs(const void * long1,const void * long2);
-int compare_floats(const void * float1,const void * float2);
-int compare_dates(const  void * date1,const void * date2);  // dd-mm-yyyy
+typedef void* Pointer;
+typedef const void* ConstPointer;
+
+int compare_ints(ConstPointer a, ConstPointer b);
+int compare_str(ConstPointer str1,ConstPointer str2);
+int compare_longs(ConstPointer long1,ConstPointer long2);
+int compare_floats(ConstPointer float1,ConstPointer float2);
+int compare_dates(ConstPointer date1,ConstPointer date2);  // dd-mm-yyyy
