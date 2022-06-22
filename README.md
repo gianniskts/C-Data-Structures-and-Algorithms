@@ -8,7 +8,7 @@
 
 
 # Data Stuctures and Algorithms implemented in C 
-Here you will find some data structures and algorithms implemented in C. These algorithms are mostly based on the book ___Introduction to Algorithms by Thomas H. Cormen___.
+Here you will find some data structures and algorithms implemented in C. These algorithms are mostly based on the books ___Introduction to Algorithms by Thomas H. Cormen, Algorithms in C by Robert Sedgewick, C Programming Language by Brian Kernighan and Dennis Ritchie___.
 
 ## Instructions
 Every module consists of at least one header file (.h) and one source file that contains the code corpus (.c). In order to use one of these modules I suggest you to follow these steps:
