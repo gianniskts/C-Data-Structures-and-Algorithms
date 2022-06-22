@@ -24,7 +24,7 @@ Every module consists of at least one header file (.h) and one source file that 
 If you clone the whole folder you can run:
 - ```make```: That compliles every module 
 - ```make run```: which compiles every module and executes all tests
-- ```make valgind-tests```:  which compiles every module and executes all tests using valgrind checking for memory leaks
+- ```make valgind-tests```:  which executes all tests checking for memory leaks
 
 ## Appendix
 
