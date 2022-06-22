@@ -4,7 +4,7 @@
 #include "./../../include/DisJointSet.h"
 
 
-DisJointSet * DJSConstruct(int set_size,void ** objectArray){
+DisJointSet * DJSConstruct(int set_size,Pointer* objectArray){
 
 	DisJointSet * dsjSet = malloc(sizeof(DisJointSet));
 	dsjSet->size = set_size;
