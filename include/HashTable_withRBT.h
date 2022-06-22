@@ -16,6 +16,8 @@
 #define HASHTABLE_SIZE 1751
 
 typedef char * keyType;
+typedef void* Pointer;
+typedef const void* ConstPointer;
 
 typedef struct HTNode{
 	RBTNode * rbtRoot;

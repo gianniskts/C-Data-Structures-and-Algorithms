@@ -13,17 +13,20 @@
 #pragma once
 #include <stdio.h>
 
+typedef void* Pointer;
+typedef const void* ConstPointer;
+
 typedef struct DisJointSet {
 
 	size_t size;
 	int * rankArray;
 	int * parentArray;
-	void ** objectArray;
+	Pointer* objectArray;
 
 } DisJointSet;
 
 /* Constructor */
-DisJointSet * DJSConstruct(int set_size,void ** objectArray);
+DisJointSet * DJSConstruct(int set_size,Pointer* objectArray);
 
 /* Methods */
 void DJSUnion(DisJointSet * dsjSet,int x,int y);

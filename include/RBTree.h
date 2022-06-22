@@ -37,7 +37,7 @@ RBTNode * createGuard();
 void destroyGuard();
 
 RBTNode * RBTConstruct();
-RBTNode * RBTnewNode(void * data,valueType key);
+RBTNode * RBTnewNode(Pointer data,valueType key);
 void RBTInitialiseKey(RBTNode * n,valueType key);
 
 RBTNode * GetParent(RBTNode* n);
@@ -68,7 +68,7 @@ void RBTDestroyTreeAndData(RBTNode * treeRoot,void (*destructor)(Pointer data));
 
 void RBTPrintTree(RBTNode * treeRoot,void (*printData)(Pointer data));
 
-void RBTFindNodesBetweenKeys(RBTNode * node,int * counter,valueType key1,valueType key2,char * funValue,int (*comparator)(valueType,valueType),int (*function)(Pointer,String) );
+void RBTFindNodesBetweenKeys(RBTNode * node,int * counter,valueType key1,valueType key2,char * funValue,int (*comparator)(valueType,valueType),int (*function)(Pointer,String));
 void RBTPrintTreeOnCondition(RBTNode * node,void (*printData)(Pointer data),int (*condition)(Pointer,String));
 
 void destroyDataStructures();

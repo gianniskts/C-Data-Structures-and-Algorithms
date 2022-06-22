@@ -17,6 +17,7 @@
 #define RIGHT 1
 
 typedef void* Pointer;
+typedef const void* ConstPointer;
 
 typedef struct  heapNode heapNode;
 
@@ -45,12 +46,12 @@ void swap(heapNode * hn1,heapNode * hn2);
 heapNode * getParent(heapNode * hn);
 
 // fixViolations
-void heapifyUp(Heap * heap,heapNode * hn,int (*comparator)(const void *,const void *));
-void heapifyDown(Heap * heap,heapNode * hn,int depth,int (*comparator)(const void *,const void *));
+void heapifyUp(Heap * heap,heapNode * hn,int (*comparator)(ConstPointer,ConstPointer));
+void heapifyDown(Heap * heap,heapNode * hn,int depth,int (*comparator)(ConstPointer,ConstPointer));
 
 // insertion-extraction functions
-void insert_toHeap(Heap * heap,Pointer value,int (*comparator)(const void *,const void *));
-Pointer extractMax_fromHeap(Heap * heap,int (*comparator)(const void *,const void *));
+void insert_toHeap(Heap * heap,Pointer value,int (*comparator)(ConstPointer,ConstPointer));
+Pointer extractMax_fromHeap(Heap * heap,int (*comparator)(ConstPointer,ConstPointer));
 
 // destructors
 void destroyNode(heapNode * rmNode,int leftORright,Heap * heap);

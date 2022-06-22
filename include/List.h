@@ -17,6 +17,7 @@
 #define ERROR -1
 
 typedef void* Pointer;
+typedef const void* ConstPointer;
 
 typedef struct listNode listNode;
 

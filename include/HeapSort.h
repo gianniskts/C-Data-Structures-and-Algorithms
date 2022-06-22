@@ -13,6 +13,7 @@
 #include "./Comparators.h"		// we need Comparators
 
 typedef void* Pointer;
+typedef const void* ConstPointer;
 
 void exchange(Pointer* array,int pos1,int pos2);
 
@@ -22,6 +23,6 @@ int getRight(int i);
 int getParent(int i);
 
 /* Heap main utility */
-void buildMaxHeap(Pointer* array,int heapSize,int (*compare)(const void*,const void*));
-void maxHeapify(Pointer* array,int heapSize,int i,int (*compare)(const void*,const void*));
-void heapsort(Pointer* array,int heapSize,int (*compare)(const void*,const void*));
+void buildMaxHeap(Pointer* array,int heapSize,int (*compare)(ConstPointer,ConstPointer));
+void maxHeapify(Pointer* array,int heapSize,int i,int (*compare)(ConstPointer,ConstPointer));
+void heapsort(Pointer* array,int heapSize,int (*compare)(ConstPointer,ConstPointer));

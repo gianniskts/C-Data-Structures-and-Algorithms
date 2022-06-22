@@ -14,6 +14,7 @@
 #include "./Comparators.h"		// we need Comparators
 
 typedef void* Pointer;
+typedef const void* ConstPointer;
 
-void quicksort(Pointer* array,int p,int r,int (*compare)(const void*,const void*));
-int partition(Pointer* array,int p,int r,int (*compare)(const void*,const void*));
+void quicksort(Pointer* array,int p,int r,int (*compare)(ConstPointer,ConstPointer));
+int partition(Pointer* array,int p,int r,int (*compare)(ConstPointer,ConstPointer));

@@ -22,6 +22,7 @@
 typedef const void * comparatorValue;
 typedef struct Bucket Bucket;
 typedef void* Pointer;
+typedef const void* ConstPointer;
 typedef char* String;
 
 typedef struct HTRecord{

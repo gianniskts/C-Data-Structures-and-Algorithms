@@ -21,6 +21,7 @@
 #include "./Queue.h"
 
 typedef void* Pointer;
+typedef const void* ConstPointer;
 
 typedef struct JobScheduler {
 
