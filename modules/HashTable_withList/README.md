@@ -20,11 +20,11 @@ For using this generic hashtable follow these steps:
 ## Main Functionality
 ```
 HashTable * createHashTable(int size);
-void HashInsert(HashTable * ht,keyType key,InfoType * info,int (*compare)(const void*,const void*));
+void HashInsert(HashTable * ht,keyType key,InfoType * info,int (*compare)(ConstPointer,ConstPointer));
 keyType getKey(KeyNode * keyList);
-KeyNode * findKeyNode(HashTable * ht,keyType key,int (*compare)(const void*,const void*));
-void RemoveDataFromHT(HashTable * ht,InfoType * rmData,keyType key,int (*compare)(const void*,const void*));
-void RemoveKeyFromHT(HashTable * ht , keyType key,int (*compare)(const void*,const void*));
+KeyNode * findKeyNode(HashTable * ht,keyType key,int (*compare)(ConstPointer,ConstPointer));
+void RemoveDataFromHT(HashTable * ht,InfoType * rmData,keyType key,int (*compare)(ConstPointer,ConstPointer));
+void RemoveKeyFromHT(HashTable * ht , keyType key,int (*compare)(ConstPointer,ConstPointer));
 void destroyDataList(DataNode * startOfList);
 void destroyHashTable(HashTable * ht);
 ```
