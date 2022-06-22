@@ -29,7 +29,7 @@ RBTNode * RBTConstruct(){
 	return GUARD;
 }
 
-RBTNode * RBTnewNode(void * data,valueType key){
+RBTNode * RBTnewNode(Pointer data,valueType key){
 
 	RBTNode * tempNode = malloc(sizeof(RBTNode));
 	tempNode->parent=GUARD;
@@ -44,7 +44,7 @@ RBTNode * RBTnewNode(void * data,valueType key){
 
 void RBTInitialiseKey(RBTNode * n,valueType key){
 
-	n->key = strdup((char*)key);
+	n->key = strdup((String)key);
 }
 
 /*------------------------------------- Getters -------------------------------------------*/
@@ -62,7 +62,7 @@ void SetColor(RBTNode * n,nodeColor color){ n->color=color; }
 
 int RBTempty(RBTNode * root){ return (root == GUARD ); }
 
-void * get_RBTData(RBTNode * node){	return (node==NULL ? NULL:node->data); }
+Pointer get_RBTData(RBTNode * node){	return (node==NULL ? NULL:node->data); }
 
 /*----------------------Search_function---------------------------*/
 
@@ -81,7 +81,7 @@ RBTNode * RBTFindNode(RBTNode * node,valueType key,int (*comparator)(valueType,v
 
 }
 
-void RBTPrintTreeOnCondition(RBTNode * node,void (*printData)(void * data),int (*condition)(void*,char*)){
+void RBTPrintTreeOnCondition(RBTNode * node,void (*printData)(Pointer data),int (*condition)(Pointer,String)){
 
 	if(node==GUARD)
 		return;
@@ -92,7 +92,7 @@ void RBTPrintTreeOnCondition(RBTNode * node,void (*printData)(void * data),int (
 	RBTPrintTreeOnCondition(node->right,printData,condition);
 }
 
-void RBTPrintTree(RBTNode * node,void (*printData)(void * data)){
+void RBTPrintTree(RBTNode * node,void (*printData)(Pointer data)){
 
 	if(node==GUARD)
 		return;
@@ -103,7 +103,7 @@ void RBTPrintTree(RBTNode * node,void (*printData)(void * data)){
 
 }
 
-void RBTFindNodesBetweenKeys(RBTNode * node,int * counter,valueType key1,valueType key2,char * funValue,int (*comparator)(valueType,valueType),int (*function)(void*,char*)){
+void RBTFindNodesBetweenKeys(RBTNode * node,int * counter,valueType key1,valueType key2,String funValue,int (*comparator)(valueType,valueType),int (*function)(Pointer,String)){
 	
 	if(node==GUARD)
 		return;
@@ -117,15 +117,15 @@ void RBTFindNodesBetweenKeys(RBTNode * node,int * counter,valueType key1,valueTy
 	
 	}else{
 
-		if((*comparator)((void*)key1,(void*)GetKey(node))>0)	// if key1 is greater that key of node => do CUTOFF and go right	
+		if((*comparator)((Pointer)key1,(Pointer)GetKey(node))>0)	// if key1 is greater that key of node => do CUTOFF and go right	
 
 			RBTFindNodesBetweenKeys(node->right,counter,key1,key2,funValue,comparator,function);
 		
-		else if((*comparator)((void*)key2,(void*)GetKey(node))<0)		// if key2 is less that key of node => do CUTOFF and go left
+		else if((*comparator)((Pointer)key2,(Pointer)GetKey(node))<0)		// if key2 is less that key of node => do CUTOFF and go left
 		
 			RBTFindNodesBetweenKeys(node->left,counter,key1,key2,funValue,comparator,function);
 		
-		else if((*comparator)((void*)key1,(void*)GetKey(node))<=0 || (*comparator)((void*)key2,(void*)GetKey(node))<=0){	// else if nodes key is between these values count it
+		else if((*comparator)((Pointer)key1,(Pointer)GetKey(node))<=0 || (*comparator)((Pointer)key2,(Pointer)GetKey(node))<=0){	// else if nodes key is between these values count it
 		
 			RBTFindNodesBetweenKeys(node->left,counter,key1,key2,funValue,comparator,function);
 		
