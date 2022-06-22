@@ -89,7 +89,7 @@ void insertData(KeyNode * key,InfoType * newdata){
 }
 
 
-void HashInsert(HashTable * ht,keyType key,InfoType * data,int (*compare)(const void*,const void*)){
+void HashInsert(HashTable * ht,keyType key,InfoType * data,int (*compare)(ConstPointer,ConstPointer)){
 
 	unsigned int index = hashCode(ht,key);
 
@@ -126,7 +126,7 @@ void HashInsert(HashTable * ht,keyType key,InfoType * data,int (*compare)(const 
 /*-------------------------------------Search_function---------------------------------------*/
 
 
-KeyNode * findKeyNode(HashTable * ht,keyType key,int (*compare)(const void*,const void*)){
+KeyNode * findKeyNode(HashTable * ht,keyType key,int (*compare)(ConstPointer,ConstPointer)){
 
 	unsigned int index = hashCode(ht,key);
 	
@@ -145,7 +145,7 @@ KeyNode * findKeyNode(HashTable * ht,keyType key,int (*compare)(const void*,cons
 
 /*------------------------------------Remove_functions----------------------------------------*/
 
-void RemoveDataFromHT(HashTable * ht,InfoType * rmData,keyType key,int (*compare)(const void*,const void*)){
+void RemoveDataFromHT(HashTable * ht,InfoType * rmData,keyType key,int (*compare)(ConstPointer,ConstPointer)){
 
 	int counter = 0;													/*I use counter to see if list will be empty*/
 	KeyNode * kn = findKeyNode(ht,key,compare);
@@ -180,7 +180,7 @@ void RemoveDataFromHT(HashTable * ht,InfoType * rmData,keyType key,int (*compare
 		RemoveKeyFromHT( ht , kn->key, compare);						/*Finally , if key is empty remove it*/
 }
 
-void RemoveKeyFromHT(HashTable * ht , keyType key,int (*compare)(const void*,const void*)){
+void RemoveKeyFromHT(HashTable * ht , keyType key,int (*compare)(ConstPointer,ConstPointer)){
 
 	unsigned int index = hashCode(ht,key);
 	int counter = 0;
