@@ -2,11 +2,6 @@
 
 
 ---
-
-
-[![run-tests](https://github.com/gianniskts/C-Data-Stuctures-and-Algorithms/actions/workflows/run-tests.yml/badge.svg)](https://github.com/gianniskts/C-Data-Stuctures-and-Algorithms/actions/workflows/run-tests.yml)
-
-
 # Data Stuctures and Algorithms implemented in C 
 Here you will find some data structures and algorithms implemented in C. These algorithms are mostly based on the books ___Introduction to Algorithms by Thomas H. Cormen, Algorithms in C by Robert Sedgewick, C Programming Language by Brian Kernighan and Dennis Ritchie___.
 
