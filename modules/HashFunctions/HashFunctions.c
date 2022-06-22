@@ -24,7 +24,7 @@ unsigned int firstPrime(unsigned int min,unsigned int max){
 }
 
 
-unsigned int StringHashFunction_RS(char * str){
+unsigned int StringHashFunction_RS(String str){
 
 	unsigned int length = strlen(str);
 	unsigned int b    = 378551;
@@ -43,7 +43,7 @@ unsigned int StringHashFunction_RS(char * str){
 }
 
 
-unsigned int StringHashFunction_BKDR(char * str){
+unsigned int StringHashFunction_BKDR(String str){
 
 	unsigned int length = strlen(str);
 	unsigned int seed = 131; 
@@ -58,7 +58,7 @@ unsigned int StringHashFunction_BKDR(char * str){
    return hash;
 }
 
-unsigned int StringHashFunction_DEK(char * str){
+unsigned int StringHashFunction_DEK(String str){
 
 	unsigned int length = strlen(str);
 	unsigned int hash = 0;
