@@ -43,8 +43,8 @@ typedef struct JobScheduler {
 
 typedef struct Job {
 
-	void * args;
-	void (*routine)(void*);
+	Pointer args;
+	void (*routine)(Pointer);
 
 } Job;
 ```
@@ -52,9 +52,9 @@ typedef struct Job {
 ## Main Functionality
 ```
 JobScheduler * initialize_scheduler(int execution_threads);
-Job * new_job(void * args,void (*routine)(void*));
+Job * new_job(Pointer args,void (*routine)(Pointer));
 void destroy_job(Job *  job);
-void submit_job(JobScheduler* scheduler,void (*routine)(void*),void * args);
+void submit_job(JobScheduler* scheduler,void (*routine)(Pointer),Pointer args);
 void execute_job(JobScheduler * scheduler);
 void wait_activeJobs_finish(JobScheduler* scheduler);
 void shutdown_JobScheduler(JobScheduler* scheduler);

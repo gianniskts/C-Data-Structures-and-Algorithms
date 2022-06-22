@@ -26,7 +26,7 @@ JobScheduler * initialize_scheduler(int execution_threads){
 
 	int err;
 	for(int t=0;t<execution_threads;t++){
-		if( (err = pthread_create(&scheduler->threads[t],NULL,thread_function,(void*) scheduler))){
+		if( (err = pthread_create(&scheduler->threads[t],NULL,thread_function,(Pointer) scheduler))){
 			perror2("pthread_create",err);
 			exit(EXIT_FAILURE);
 		}
@@ -35,7 +35,7 @@ JobScheduler * initialize_scheduler(int execution_threads){
 	return scheduler;
 }
 
-Job * new_job(void * args,void (*routine)(void*)){
+Job * new_job(Pointer args,void (*routine)(Pointer)){
 
 	Job * job = malloc(sizeof(Job));
 	job->args = args;
@@ -53,12 +53,12 @@ void destroy_job(Job *  job){
 
 
 
-void submit_job(JobScheduler* scheduler,void (*routine)(void*),void * args){
+void submit_job(JobScheduler* scheduler,void (*routine)(Pointer),Pointer args){
 
 	pthread_mutex_lock(&(scheduler->queue_mtx));
 
 	Job * job = new_job(args,routine);
-	QueuePush(scheduler->jobsQueue,(void*)job);
+	QueuePush(scheduler->jobsQueue,(Pointer)job);
 	scheduler->numOfJobs++;
 
 	pthread_cond_signal(&scheduler->queue_not_empty);
@@ -68,7 +68,7 @@ void submit_job(JobScheduler* scheduler,void (*routine)(void*),void * args){
 }
 
 
-void * thread_function(void * scheduler_arguments){
+Pointer thread_function(Pointer scheduler_arguments){
 
 	JobScheduler * scheduler = (JobScheduler*) scheduler_arguments;
 
@@ -93,8 +93,8 @@ void execute_job(JobScheduler * scheduler){
 	Job * job = (Job *) QueuePop(scheduler->jobsQueue);
 	pthread_mutex_unlock(&(scheduler->queue_mtx));
 
-	void (*routine)(void*) = job->routine;
-	void * job_args = job->args;
+	void (*routine)(Pointer) = job->routine;
+	Pointer job_args = job->args;
 
  	routine(job_args);
 
