@@ -35,11 +35,11 @@ Bucket * createBucket(size_t bucketSize){
 	return temp;
 }
 
-HTRecord * createHTRecord(char * key){
+HTRecord * createHTRecord(String key){
 
 	HTRecord  * htr = malloc(sizeof(HTRecord));
 	htr->key = key;
-	htr->value = (void *) RBTConstruct();
+	htr->value = (Pointer) RBTConstruct();
 	htr->counter = 0;
 
 	return htr;
@@ -47,7 +47,7 @@ HTRecord * createHTRecord(char * key){
 
 /* ------------------------------- Insertions ------------------------------*/
 
-int insertRecord(void * htRecord,Bucket * bucket){		//inserts record to bucket
+int insertRecord(Pointer htRecord,Bucket * bucket){		//inserts record to bucket
 
 	int offset = bucket->records;
 	memmove(bucket->bucketMemory+offset*sizeof(HTRecord),htRecord,sizeof(HTRecord));
@@ -58,7 +58,7 @@ int insertRecord(void * htRecord,Bucket * bucket){		//inserts record to bucket
 }
 
 
-int insert_toHashTable(void * value,char * HTkey,char * treeKey,HashTable * ht,int (*comparator)(comparatorValue,comparatorValue)){
+int insert_toHashTable(Pointer value,char * HTkey,String treeKey,HashTable * ht,int (*comparator)(comparatorValue,comparatorValue)){
 	
 	unsigned int hash = StringHashFunction_RS(HTkey)%(ht->hashtableSize);
 
@@ -69,7 +69,7 @@ int insert_toHashTable(void * value,char * HTkey,char * treeKey,HashTable * ht,i
 		increaseCounter(htrecord);
 		RBTNode * root = (RBTNode *) getValue(htrecord);
 		RBTInsert(&root,value,treeKey,comparator);
-		htrecord->value = (void*)root;
+		htrecord->value = (Pointer)root;
 		insertRecord(htrecord,ht->buckets[hash]);
 		ht->numOfRecords++;
 
@@ -77,7 +77,7 @@ int insert_toHashTable(void * value,char * HTkey,char * treeKey,HashTable * ht,i
 
 		int loops = 0,found = 0;
 		HTRecord * tempRecord;
-		char * tempKey;
+		String tempKey;
 		Bucket * tempBucket = ht->buckets[hash],*wantedBucket;
 
 		while(tempBucket!=NULL){	/* search the list of buckets */
@@ -144,7 +144,7 @@ int insert_toHashTable(void * value,char * HTkey,char * treeKey,HashTable * ht,i
 	return NO_ERROR;	
 }
 
-void * getValue(HTRecord * record){ return record->value;}
+Pointer getValue(HTRecord * record){ return record->value;}
 
 int getCounter(HTRecord * record){ return record->counter;}
 
@@ -152,7 +152,7 @@ void increaseCounter(HTRecord * record){record->counter++;}
 
 int getNumOfRecords(HashTable * ht){return ht->numOfRecords;}
 
-void numOfRecordsBetweenKeys(HashTable * hashtable,char * date1,char * date2,int (*comparator)(comparatorValue,comparatorValue)){
+void numOfRecordsBetweenKeys(HashTable * hashtable,String date1,String date2,int (*comparator)(comparatorValue,comparatorValue)){
 
 	int loops = 0,totalNumber=0;
 
@@ -180,7 +180,7 @@ void numOfRecordsBetweenKeys(HashTable * hashtable,char * date1,char * date2,int
 				}else{		/* else read tree between these dates */
 					int counter = 0;
 					RBTNode * treeRoot = (RBTNode *) getValue(tempRecord);
-					RBTFindNodesBetweenKeys(treeRoot,&counter,(void *) date1,(void *) date2,NULL,comparator,NULL);
+					RBTFindNodesBetweenKeys(treeRoot,&counter,(Pointer) date1,(Pointer) date2,NULL,comparator,NULL);
 					#ifdef WITH_UI
 						printf("\t%s: %d \n",tempRecord->key,counter);
 					#else
@@ -204,7 +204,7 @@ void numOfRecordsBetweenKeys(HashTable * hashtable,char * date1,char * date2,int
 	
 }
 
-int findKeyData(HashTable * hashtable,char * wantedKey,char * date1,char * date2,int (*comparator)(comparatorValue,comparatorValue),char * funValue,int (*function)(void*,char*)){
+int findKeyData(HashTable * hashtable,String wantedKey,String date1,String date2,int (*comparator)(comparatorValue,comparatorValue),String funValue,int (*function)(Pointer,String)){
 
 	int loops = 0;
 	int hash = StringHashFunction_RS(wantedKey)%(hashtable->hashtableSize);
@@ -225,7 +225,7 @@ int findKeyData(HashTable * hashtable,char * wantedKey,char * date1,char * date2
 			if(comparator(wantedKey,tempRecord->key)==0){		/* find specific hashtable key */
 				int counter = 0;
 				RBTNode * treeRoot = (RBTNode *) getValue(tempRecord);
-				RBTFindNodesBetweenKeys(treeRoot,&counter,(void *) date1,(void *) date2,funValue,comparator,function);
+				RBTFindNodesBetweenKeys(treeRoot,&counter,(Pointer) date1,(Pointer) date2,funValue,comparator,function);
 				return counter;	
 			}
 
